@@ -5,15 +5,15 @@ async function loadCharacter(){
     let response = await fetch(url);
     let allCharacters = await response.json();
     console.log( allCharacters);
-    currentCharacter = allCharacters[0];
+    currentCharacter = allCharacters[34];
     console.log(currentCharacter);
     renderCharacterInfo();
 }
 
 function renderCharacterInfo(){
     document.getElementById('name').innerHTML = currentCharacter['name'];
-    document.getElementById('img').setAttribute('href', currentCharacter['image']);
-    if (currentCharacter['house'] != '') {
+
+    if (currentCharacter['house'] !== '') {
             document.getElementById('house').innerHTML = currentCharacter['house'];
             if (currentCharacter['house'] == 'Gryffindor') {
                 document.getElementById('cardTop').style.backgroundColor = '#A24335';
@@ -27,5 +27,16 @@ function renderCharacterInfo(){
 
     }
 
+    if (currentCharacter['image'] !== '') {
+            document.getElementById('img').setAttribute('href', currentCharacter['image']);
+    }
+
+    if ((currentCharacter['wizard']==true)&&(currentCharacter['gender']=='male')) {
+        document.getElementById('wizOrMug').innerHTML = 'Zauberer';
+    } else if ((currentCharacter['wizard']==true)&&(currentCharacter['gender']=='female')) {
+        document.getElementById('wizOrMug').innerHTML = 'Hexe';
+    } else if ((currentCharacter['ancestry']=='muggle')) {
+        document.getElementById('wizOrMug').innerHTML = 'Muggel';
+    }
 }  
 

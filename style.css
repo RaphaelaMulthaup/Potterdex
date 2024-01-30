@@ -17,15 +17,18 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    background-color: #6B63B5;
 }
 
 h1{
-    margin-bottom: 7px;
+    margin: 22px 10px 7px;
     font-family: "IM Fell English SC", serif;
     font-weight: 400;
     font-style: normal;
+    text-align: center
 
 }
 
