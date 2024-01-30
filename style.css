@@ -1,25 +1,38 @@
 body{
     margin: 0;
-    font-family: "IM Fell English SC", serif;
+    background-color: #242633;
+    font-family: "Quattrocento", serif;
     font-weight: 400;
     font-style: normal;
-    background-color: #242633;
-
       
 }
 
 .card{
     width: 300px;
-    border-radius: 5px;
 }
 
 #cardTop{
     min-height: 30vh;
-    background-color: rgb(131, 14, 14);
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+h1{
+    margin-bottom: 7px;
+    font-family: "IM Fell English SC", serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+h2{
+    margin: 0 0 16px;
+    font-size: 16 px;
+    font-weight: 500;
 }
 
 svg{
@@ -29,4 +42,6 @@ svg{
 #cardBottom{
     background-color: white;
     min-height: 50vh;
+    margin-top: -20px;
+    border-radius: 20px;
 }
