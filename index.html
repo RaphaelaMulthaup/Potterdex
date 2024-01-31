@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
     <script src="script.js"></script>
-</head>
-<body onload="loadCharacter()">
+  </head>
+  <body onload="loadCharacter()">
     <div class="card">
-            <div id="cardTop">
+      <div id="cardTop">
         <h1 id="name"></h1>
         <h2 id="house"></h2>
-        <svg height="200" width="200">
-            <defs>
-                <pattern id="imagePattern" x="0" y="0" patternUnits="objectBoundingBox" height="1" width="1">
-                    <image id="img" x="0" y="0" width="200px" href="img/hogwartsExpress.jpg" />
-                </pattern>
-            </defs>
-            <polygon points="100,0 200,85 160,200 40,200 0,85" fill="url(#imagePattern)" stroke="#242633" stroke-width="1"/>
-        </svg>
-    </div>
-    <div id="cardBottom">
+      </div>
+      <div id="cardBottom">
         <h2 id="wizOrMug"></h2>
+        <h3 id="ancestry"></h3>
+        <span id="hogwartsStudent"></span>
+        <span id="hogwartsStaff"></span>
         <table id="tableWizard"></table>
+        <table id="tableWand"></table>
         <table id="generalInformation"></table>
-
+      </div>
     </div>
-
-    </div>
-</body>
+  </body>
 </html>
