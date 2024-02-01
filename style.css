@@ -47,4 +47,29 @@ svg{
     min-height: 50vh;
     margin-top: -20px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#wizOrMug{
+    margin: 92px 0 0;
+    font-size: 28px;
+}
+
+#ancestry{
+    font-size: 12px;
+    margin: 0 0 16px;
+}
+
+#hogwartsStudent{
+    margin-bottom: 24px;
+}
+
+#hogwartsStudent{
+    margin-bottom: 24px;
+}
+
+.tables{
+    width: 260px;
 }
