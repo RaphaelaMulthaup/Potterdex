@@ -1,4 +1,5 @@
-function renderCharacterInfo() {
+function renderCharacterInfo(i) {
+  currentCharacter = allCharacters[i];
     nameAliveHouse();
     image();
     wizardWitchMuggle();

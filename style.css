@@ -7,13 +7,37 @@ body{
       
 }
 
+main{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 .miniCard{
     width: 200px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.miniCard:hover{
+    cursor: pointer;
+}
+
+.h1Minicard{
+    font-size: 28px;
+}
+
+button{
+    width: 200px;
 }
 
 .card{
     width: 300px;
+    background-color: #6B63B5;
 }
 
 #cardTop{
