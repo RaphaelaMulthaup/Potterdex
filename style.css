@@ -7,6 +7,11 @@ body{
       
 }
 
+.miniCard{
+    width: 200px;
+    border-radius: 20px;
+}
+
 .card{
     width: 300px;
 }
@@ -33,23 +38,23 @@ h1{
 }
 
 h2{
-    margin: 0 0 16px;
+    margin: 0 0 22px;
     font-size: 16 px;
     font-weight: 500;
 }
 
-svg{
+.svgBigCard{
     margin-bottom: -50px;
 }
 
 #cardBottom{
     background-color: white;
-    min-height: 50vh;
     margin-top: -20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 #wizOrMug{
@@ -63,13 +68,24 @@ svg{
 }
 
 #hogwartsStudent{
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
 #hogwartsStudent{
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
 
 .tables{
-    width: 260px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 14px;
 }
+tr td:first-child{
+    width: 100px;
+    color: gray;
+}
+
