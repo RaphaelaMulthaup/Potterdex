@@ -1,13 +1,15 @@
 function renderCharacterInfo(i) {
   currentCharacter = allCharacters[i];
+  document.getElementById('card').style = ('display: block')
     nameAliveHouse();
     image();
     wizardWitchMuggle();
     hogwartsPatronus();
     wand();
     generalInformation();
+    document.getElementById('body').onclick = closeCard();
   }
-  
+
   function nameAliveHouse() {
     // Name
     document.getElementById("name").innerHTML = currentCharacter["name"];
@@ -191,4 +193,13 @@ function renderCharacterInfo(i) {
           </tr>
           `;
     }
+  }
+
+  function closeCard(){
+    document.getElementById('card').style = ('display: none');
+    document.getElementById('body').removeAttribute('onclick');
+  }
+
+  function doNotClose(event){
+    event.stopPropagation();
   }

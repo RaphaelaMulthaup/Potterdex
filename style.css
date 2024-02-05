@@ -1,115 +1,131 @@
-body{
-    margin: 0;
-    background-color: #242633;
-    font-family: "Quattrocento", serif;
-    font-weight: 400;
-    font-style: normal;
-      
+body {
+  margin: 0;
+  background-color: #242633;
+  font-family: "Quattrocento", serif;
+  font-weight: 400;
+  font-style: normal;
+}   
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-main{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+.miniCard {
+  width: 200px;
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  color: white;
 }
 
-.miniCard{
-    width: 200px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 30px;
+.miniCard:hover {
+  cursor: pointer;
 }
 
-.miniCard:hover{
-    cursor: pointer;
+.h1Minicard {
+  font-size: 28px;
+  margin: 22px 10px 0px !important;
 }
 
-.h1Minicard{
-    font-size: 28px;
+.miniCard span{
+    font-size: 20px;
 }
 
-button{
-    width: 200px;
+button {
+  width: 200px;
 }
 
-.card{
-    width: 300px;
-    background-color: #6B63B5;
+.card {
+  width: 300px;
+  background-color: #6b63b5;
+  border-radius: 20px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 715px;
 }
 
-#cardTop{
-    min-height: 30vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: #6B63B5;
+#cardTop {
+  height: 268px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #6b63b5;
 }
 
-h1{
+h1 {
     margin: 22px 10px 7px;
     font-family: "IM Fell English SC", serif;
     font-weight: 400;
     font-style: normal;
-    text-align: center
-
-}
-
-h2{
+    text-align: center;
+    color: white;
+  }
+  
+  h2 {
     margin: 0 0 22px;
     font-size: 16 px;
     font-weight: 500;
+  }
+
+.svgBigCard {
+  margin-bottom: -50px;
 }
 
-.svgBigCard{
-    margin-bottom: -50px;
+#cardBottom {
+  background-color: white;
+  margin-top: -20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
 }
 
-#cardBottom{
-    background-color: white;
-    margin-top: -20px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 30px;
+#wizOrMug {
+  margin: 92px 0 0;
+  font-size: 28px;
 }
 
-#wizOrMug{
-    margin: 92px 0 0;
-    font-size: 28px;
+#ancestry {
+  font-size: 12px;
+  margin: 0 0 16px;
 }
 
-#ancestry{
-    font-size: 12px;
-    margin: 0 0 16px;
+#hogwartsStudent {
+  margin-bottom: 30px;
+  font-size: 20px;
 }
 
-#hogwartsStudent{
-    margin-bottom: 30px;
-    font-size: 20px;
+#hogwartsStudent {
+  margin-bottom: 30px;
+  font-size: 20px;
 }
 
-#hogwartsStudent{
-    margin-bottom: 30px;
-    font-size: 20px;
+.tables {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 14px;
 }
-
-.tables{
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    font-size: 14px;
+tr td:first-child {
+  width: 100px;
+  color: gray;
 }
-tr td:first-child{
-    width: 100px;
-    color: gray;
-}
-
