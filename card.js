@@ -7,6 +7,7 @@ function renderCharacterInfo(i) {
     hogwartsPatronus();
     wand();
     generalInformation();
+    document.getElementById('body').classList.add('grayBody');
     document.getElementById('body').onclick = closeCard;
   }
 
@@ -198,6 +199,7 @@ function renderCharacterInfo(i) {
   function closeCard(){
     document.getElementById('card').style = ('display: none');
     document.getElementById('body').removeAttribute('onclick');
+    document.getElementById('body').classList.remove('grayBody');
   }
 
   function doNotClose(event){

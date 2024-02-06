@@ -105,6 +105,7 @@ function imgMiniCardHtml(i) {
 }
 
 function hover(i) {
+  hovercolor(i);
   let svg = document.getElementById(`svg${i}`);
   let img = svg.querySelector("image");
   svg.setAttribute("width", 180);
@@ -115,13 +116,46 @@ function hover(i) {
     .setAttribute("points", "90,0 180,76 144,180 36,180 0,76");
 }
 
-function hoverUndone(i){
-    let svg = document.getElementById(`svg${i}`);
-    let img = svg.querySelector("image");
-    svg.setAttribute("width", 160);
-    svg.setAttribute("height", 160);
-    img.setAttribute("width", 160);
-    document
-      .getElementById(`polygon${i}`)
-      .setAttribute("points", "80,0 160,68 128,160 32,160 0,68");
+function hovercolor(i) {
+  if (allCharacters[i]["house"] !== "") {
+    if (allCharacters[i]["house"] == "Gryffindor") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#c16356";
+    } else if (allCharacters[i]["house"] == "Slytherin") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#447671";
+    } else if (allCharacters[i]["house"] == "Ravenclaw") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#446287";
+    } else if (allCharacters[i]["house"] == "Hufflepuff") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#e3bb7f";
+    }
+  } else {
+    document.getElementById(`miniCard${i}`).style.backgroundColor = "#8079b6";
   }
+}
+
+function hoverUndone(i) {
+  hoverUndoneColor(i);
+  let svg = document.getElementById(`svg${i}`);
+  let img = svg.querySelector("image");
+  svg.setAttribute("width", 160);
+  svg.setAttribute("height", 160);
+  img.setAttribute("width", 160);
+  document
+    .getElementById(`polygon${i}`)
+    .setAttribute("points", "80,0 160,68 128,160 32,160 0,68");
+}
+
+function hoverUndoneColor(i) {
+  if (allCharacters[i]["house"] !== "") {
+    if (allCharacters[i]["house"] == "Gryffindor") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#A24335";
+    } else if (allCharacters[i]["house"] == "Slytherin") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#1D5B54";
+    } else if (allCharacters[i]["house"] == "Ravenclaw") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#1C477B";
+    } else if (allCharacters[i]["house"] == "Hufflepuff") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#C99C5A";
+    }
+  } else {
+    document.getElementById(`miniCard${i}`).style.backgroundColor = "#6B63B5";
+  }
+}
