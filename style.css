@@ -4,12 +4,17 @@ body {
   font-family: "Quattrocento", serif;
   font-weight: 400;
   font-style: normal;
-}   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 main {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
+  align-items: center;
 }
 
 .miniCard {
@@ -33,12 +38,25 @@ main {
   margin: 22px 10px 0px !important;
 }
 
-.miniCard span{
-    font-size: 20px;
+.miniCard span {
+  font-size: 20px;
 }
 
 button {
-  width: 200px;
+  margin-top: 50px;
+  background-color: #6b63b5;
+  color: white;
+  border-style: none;
+  height: 45px;
+  font-family: "QUATTROCENTO";
+  font-size: 20px;
+  width: 263px;
+  border-radius: 10px;
+}
+
+button:hover{
+    background-color: #8079b6;
+    cursor: pointer;
 }
 
 .card {
@@ -70,19 +88,19 @@ button {
 }
 
 h1 {
-    margin: 22px 10px 7px;
-    font-family: "IM Fell English SC", serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    color: white;
-  }
-  
-  h2 {
-    margin: 0 0 22px;
-    font-size: 16 px;
-    font-weight: 500;
-  }
+  margin: 22px 10px 7px;
+  font-family: "IM Fell English SC", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  margin: 0 0 22px;
+  font-size: 16 px;
+  font-weight: 500;
+}
 
 .svgBigCard {
   margin-bottom: -50px;

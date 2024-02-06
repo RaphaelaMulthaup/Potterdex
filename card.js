@@ -7,7 +7,7 @@ function renderCharacterInfo(i) {
     hogwartsPatronus();
     wand();
     generalInformation();
-    document.getElementById('body').onclick = closeCard();
+    document.getElementById('body').onclick = closeCard;
   }
 
   function nameAliveHouse() {
