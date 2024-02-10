@@ -1,6 +1,30 @@
+// const ctx = document.getElementById('myChart');
+          
+// new Chart(ctx, {
+//   type: 'bar',
+//   data: {
+//     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//     datasets: [{
+//       label: '# of Votes',
+//       data: [12, 19, 3, 5, 2, 3],
+//       borderWidth: 1
+//     }]
+//   },
+//   options: {
+//     scales: {
+//       y: {
+//         beginAtZero: true
+//       }
+//     }
+//   }
+// });
+
+
 function renderCharacterInfo(i) {
   currentCharacter = allCharacters[i];
   document.getElementById('card').style = ('display: block')
+  document.getElementById('last').style = ('display: block')
+  document.getElementById('next').style = ('display: block')
     nameAliveHouse();
     image();
     wizardWitchMuggle();
@@ -12,6 +36,10 @@ function renderCharacterInfo(i) {
   }
 
   function nameAliveHouse() {
+    document.getElementById("cardTop").innerHTML = /*html*/`
+    <h1 id="name"></h1>
+    <h2 id="house"></h2>
+    `;
     // Name
     document.getElementById("name").innerHTML = currentCharacter["name"];
     // tot?
@@ -19,6 +47,7 @@ function renderCharacterInfo(i) {
       document.getElementById("name").innerHTML += " &dagger;";
     }
     // Hogwartshaus mit Farbe
+    document.getElementById("house").innerHTML ='';
     if (currentCharacter["house"] !== "") {
       document.getElementById("house").innerHTML = currentCharacter["house"];
       if (currentCharacter["house"] == "Gryffindor") {
@@ -35,6 +64,7 @@ function renderCharacterInfo(i) {
   
   function image() {
     // Bild
+    
     if (currentCharacter["image"] !== "") {
       // document.getElementById('img').setAttribute('href', currentCharacter['image']);
       document.getElementById("cardTop").innerHTML += /*html*/ `
@@ -91,6 +121,10 @@ function renderCharacterInfo(i) {
   
   // Abstammung
   function ancestry() {
+    document.getElementById(
+      "ancestry"
+    ).innerHTML = '';
+  
     if (
       currentCharacter["ancestry"] == "half-blood" ||
       "muggleborn" ||
@@ -104,15 +138,17 @@ function renderCharacterInfo(i) {
   
   function hogwartsPatronus(){
       // Hogwarts SchülerIn oder Mitarbeitender
+      document.getElementById("hogwartsStudentStaff").innerHTML = '';
     if (currentCharacter["hogwartsStudent"]) {
-      document.getElementById("hogwartsStudent").innerHTML = "hogwarts student";
+      document.getElementById("hogwartsStudentStaff").innerHTML = "hogwarts student";
     }
     if (currentCharacter["hogwartsStaff"]) {
-      document.getElementById("hogwartsStaff").innerHTML = "hogwarts staff";
+      document.getElementById("hogwartsStudentStaff").innerHTML = "hogwarts staff";
     }
     // Patronus
+    document.getElementById("tableWizard").innerHTML = '';
     if (currentCharacter["patronus"] !== "") {
-      document.getElementById("tableWizard").innerHTML += /*html*/ `
+      document.getElementById("tableWizard").innerHTML = /*html*/ `
           <tr>
               <td>patronus</td>
               <td>${currentCharacter["patronus"]}</td>
@@ -123,8 +159,10 @@ function renderCharacterInfo(i) {
   
   function wand(){
         //Zauberstab
+        document.getElementById("tableWand").innerHTML = '';
+       
     if (currentCharacter["wand"]["wood"] !== "") {
-      document.getElementById("tableWand").innerHTML += /*html*/ `
+      document.getElementById("tableWand").innerHTML = /*html*/ `
           <tr>
               <td style="color:black; font-weight:600">wand</td>
           </tr>
@@ -154,6 +192,7 @@ function renderCharacterInfo(i) {
   
   function generalInformation(){
         // allgemeine Informationen
+        document.getElementById("generalInformation").innerHTML ='';
     if (currentCharacter["dateOfBirth"] !== null) {
       document.getElementById("generalInformation").innerHTML += /*html*/ `
           <tr>
@@ -198,6 +237,8 @@ function renderCharacterInfo(i) {
 
   function closeCard(){
     document.getElementById('card').style = ('display: none');
+    document.getElementById('last').style = ('display: none')
+    document.getElementById('next').style = ('display: none')  
     document.getElementById('body').removeAttribute('onclick');
     document.getElementById('body').classList.remove('grayBody');
   }

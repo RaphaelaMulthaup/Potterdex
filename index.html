@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="fonts/fonts.css" />
     <script src="script.js"></script>
     <script src="card.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body id="body" onload="loadCharacter()">
-    <div class="card" id="card" style="display: none;" onclick="doNotClose(event)">
+    <div
+      class="card"
+      id="card"
+      style="display: none"
+      onclick="doNotClose(event)"
+    >
       <div id="cardTop">
         <h1 id="name"></h1>
         <h2 id="house"></h2>
@@ -18,14 +25,55 @@
       <div id="cardBottom">
         <h2 id="wizOrMug"></h2>
         <h3 id="ancestry"></h3>
-        <span id="hogwartsStudent"></span>
-        <span id="hogwartsStaff"></span>
+        <span id="hogwartsStudentStaff"></span>
         <div class="tables">
           <table id="tableWizard"></table>
           <table id="tableWand"></table>
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+          <script>
+            const ctx = document.getElementById("myChart");
+
+            new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [
+                  {
+                    label: "# of Votes",
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+              },
+            });
+          </script>
+
           <table id="generalInformation"></table>
         </div>
       </div>
+    </div>
+    <div class="changeCard">
+      <img
+        id="last"
+        style="display: none"
+        src="/img/last.png"
+        alt="vorheriger Charakter"
+      />
+      <img
+        id="next"
+        style="display: none"
+        src="/img/next.png"
+        alt="nächster Charakter"
+      />
     </div>
     <main id="main"></main>
     <button onclick="renderCollection()">Weitere Charaktere laden</button>

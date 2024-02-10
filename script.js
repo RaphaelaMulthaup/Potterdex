@@ -67,7 +67,7 @@ function renderCollection() {
 
 function miniCardHtml(i) {
   return /*html*/ `
-        <div id="miniCard${i}" class="miniCard" onclick="renderCharacterInfo(${i})" onmouseover="hover(${i})" onmouseout="hoverUndone(${i})">
+        <div id="miniCard${i}" class="miniCard" onclick="renderCharacterInfo(${i}), doNotClose(event)" onmouseover="hover(${i})" onmouseout="hoverUndone(${i})">
             <h1 id="h1Minicard${i}" class="h1Minicard">${allCharacters[i]["name"]}</h1>
         </div>
     `;
