@@ -29,7 +29,7 @@
         <div class="tables">
           <table id="tableWizard"></table>
           <table id="tableWand"></table>
-          <div>
+          <div class="chart">
             <canvas id="myChart"></canvas>
           </div>
           <script>
@@ -38,19 +38,34 @@
             new Chart(ctx, {
               type: "bar",
               data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: [''],
                 datasets: [
                   {
                     label: "# of Votes",
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [10],
+                    backgroundColor: ["rgb(65,53,48)"],
                     borderWidth: 1,
+                    borderRadius: 7,
                   },
                 ],
               },
               options: {
+                indexAxis: "y",
                 scales: {
-                  y: {
-                    beginAtZero: true,
+      x: {
+        min: 0, // Startwert auf der x-Achse
+        max: 14, // Endwert auf der x-Achse
+        ticks: {
+          stepSize: 1 // Schrittgröße zwischen den Werten
+        }
+      },
+      y: {
+        categoryPercentage: 1.0, // 100% Breite für jede Kategorie
+        barPercentage: 1.0 // 100% Breite für jede Bar
+      }
+    },                plugins: {
+                  legend: {
+                    display: false, // Hier wird das Label ausgeblendet
                   },
                 },
               },

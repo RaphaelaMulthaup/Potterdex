@@ -169,3 +169,13 @@ tr td:first-child {
   width: 100px;
   color: gray;
 }
+
+.chart{
+  height: 55px;
+}
+
+canvas {
+  width: 100%; /* Das Canvas wird die gesamte Breite des übergeordneten Divs einnehmen */
+  height: auto; /* Das Canvas passt seine Höhe automatisch an, um das Seitenverhältnis beizubehalten */
+  aspect-ratio: 3/1; /* Legt das Seitenverhältnis des Canvas-Elements fest (Breite/Höhe) */
+}
