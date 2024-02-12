@@ -28,9 +28,33 @@ body {
 
 .changeCard{
   z-index: 7;
-  width: 400px;
+  width: 410px;
+  height: 40px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.whiteDiv{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.whiteDiv:hover{
+  cursor: pointer;
+  background-color: rgb(231, 231, 231);
+}
+
+.iconChangeCard{
+  height: 30px;
 }
 
 main {
@@ -162,7 +186,7 @@ h2 {
   width: 240px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  /* gap: 16px; */
   font-size: 14px;
 }
 tr td:first-child {
@@ -170,12 +194,21 @@ tr td:first-child {
   color: gray;
 }
 
-.chart{
-  height: 55px;
+#tableWizard{
+  margin-bottom: 16px;
 }
 
-canvas {
-  width: 100%; /* Das Canvas wird die gesamte Breite des übergeordneten Divs einnehmen */
-  height: auto; /* Das Canvas passt seine Höhe automatisch an, um das Seitenverhältnis beizubehalten */
-  aspect-ratio: 3/1; /* Legt das Seitenverhältnis des Canvas-Elements fest (Breite/Höhe) */
+#generalInformation{
+  margin-top: 16px;
 }
+
+.chart{
+  position: relative;
+  height: 55px;
+  width: 240px;
+}
+
+canvas{
+  width: 240px !important;
+}
+

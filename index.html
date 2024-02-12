@@ -41,7 +41,7 @@
                 labels: [''],
                 datasets: [
                   {
-                    label: "# of Votes",
+                    label: "length of the wand",
                     data: [10],
                     backgroundColor: ["rgb(65,53,48)"],
                     borderWidth: 1,
@@ -54,9 +54,11 @@
                 scales: {
       x: {
         min: 0, // Startwert auf der x-Achse
-        max: 14, // Endwert auf der x-Achse
+        max: 15, // Endwert auf der x-Achse
         ticks: {
-          stepSize: 1 // Schrittgröße zwischen den Werten
+          stepSize: 1, // Schrittgröße zwischen den Werten
+          maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
+          minRotation: 0 // Minimale Rotation der Tick-Marken (0 Grad)
         }
       },
       y: {
@@ -76,19 +78,21 @@
         </div>
       </div>
     </div>
-    <div class="changeCard">
-      <img
-        id="last"
-        style="display: none"
+    <div id="changeCard" class="changeCard" style="display: none">
+      <div class="whiteDiv" id="last" onclick="doNotClose(event)">
+        <img
+        class="iconChangeCard"
         src="/img/last.png"
         alt="vorheriger Charakter"
       />
-      <img
-        id="next"
-        style="display: none"
+      </div>
+      <div class="whiteDiv" id="next" onclick="doNotClose(event)">
+        <img
+        class="iconChangeCard"
         src="/img/next.png"
         alt="nächster Charakter"
       />
+      </div>
     </div>
     <main id="main"></main>
     <button onclick="renderCollection()">Weitere Charaktere laden</button>
