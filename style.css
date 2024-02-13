@@ -191,11 +191,24 @@ h2 {
   font-size: 12px;
   text-align: center;
   gap: 24px;
-  margin-bottom: 8px;
+  z-index: 25;
+  margin-bottom: -1.5px;
+}
+
+.menuItem{
+  padding-bottom: 8px;
+}
+
+.line{
+  border-bottom-style: solid;
 }
 
 .grayMenu{
   color: #bab8b8;
+}
+
+.spanMenuItem:hover{
+  cursor: pointer;
 }
 
 .tables {
@@ -206,6 +219,7 @@ h2 {
   /* gap: 16px; */
   font-size: 14px;
   border-color: #dfdddd;
+  z-index: 20;
 }
 tr td:first-child {
   width: 100px;

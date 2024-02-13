@@ -193,6 +193,10 @@ function wand() {
               <td>${currentCharacter["wand"]["length"]} inches</td>
           </tr>
           `;
+    document.getElementById('chart').classList.remove('d-none');
+    ctx[data][datasets][0][data] = currentCharacter["wand"]["length"];
+  } else {
+    document.getElementById('chart').classList.add('d-none');
   }
 }
 
@@ -274,6 +278,8 @@ function changeMenuCardToMagicalInformations(){
   document.getElementById('cardGeneralInformations').classList.add('d-none');
   document.getElementById('menuItemMagical').classList.remove('grayMenu');
   document.getElementById('menuItemGeneral').classList.add('grayMenu');
+  document.getElementById('menuItemGeneral').classList.remove('line');
+  document.getElementById('menuItemMagical').classList.add('line');
 }
 
 function changeMenuCardToGeneralInformations(){
@@ -281,5 +287,7 @@ function changeMenuCardToGeneralInformations(){
   document.getElementById('cardMagicalInformations').classList.add('d-none');
   document.getElementById('menuItemGeneral').classList.remove('grayMenu');
   document.getElementById('menuItemMagical').classList.add('grayMenu');
+  document.getElementById('menuItemGeneral').classList.add('line');
+  document.getElementById('menuItemMagical').classList.remove('line');
 }
 

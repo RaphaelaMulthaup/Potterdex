@@ -26,14 +26,18 @@
         <h3 id="ancestry"></h3>
         <span id="hogwartsStudentStaff"></span>
         <div class="menu">
-          <div id="menuItemMagical" onclick="changeMenuCardToMagicalInformations()">magical<br />informations</div>
-          <div id="menuItemGeneral" onclick="changeMenuCardToGeneralInformations()" class="grayMenu">general<br />informations</div>
+          <div class="menuItem line" id="menuItemMagical" onclick="changeMenuCardToMagicalInformations()">
+            <span class="spanMenuItem">magical<br />informations</span>
+            </div>
+          <div class="menuItem grayMenu" id="menuItemGeneral" onclick="changeMenuCardToGeneralInformations()">
+            <span class="spanMenuItem">general<br />informations</span>
+            </div>
         </div>
         <div class="cardMagicalInformations" id="cardMagicalInformations">
           <div class="tables">
             <table id="tableWizard"></table>
             <table id="tableWand"></table>
-            <div class="chart">
+            <div id="chart" class="chart">
               <canvas id="myChart"></canvas>
             </div>
             <script>
