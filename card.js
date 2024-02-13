@@ -268,3 +268,18 @@ function closeCard() {
 function doNotClose(event) {
   event.stopPropagation();
 }
+
+function changeMenuCardToMagicalInformations(){
+  document.getElementById('cardMagicalInformations').classList.remove('d-none');
+  document.getElementById('cardGeneralInformations').classList.add('d-none');
+  document.getElementById('menuItemMagical').classList.remove('grayMenu');
+  document.getElementById('menuItemGeneral').classList.add('grayMenu');
+}
+
+function changeMenuCardToGeneralInformations(){
+  document.getElementById('cardGeneralInformations').classList.remove('d-none');
+  document.getElementById('cardMagicalInformations').classList.add('d-none');
+  document.getElementById('menuItemGeneral').classList.remove('grayMenu');
+  document.getElementById('menuItemMagical').classList.add('grayMenu');
+}
+
