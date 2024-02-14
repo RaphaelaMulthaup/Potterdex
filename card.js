@@ -29,17 +29,22 @@ function renderCharacterInfo(i) {
   document.getElementById("next").addEventListener("click", function () {
     nextCard(i);
   });
-  nameAliveHouse();
+  informationsCard();
+  document.getElementById("body").classList.add("grayBody");
+  document.getElementById("body").onclick = closeCard;
+}
+
+function informationsCard() {
+  nameAlive();
+  house();
   image();
   wizardWitchMuggle();
   hogwartsPatronus();
   wand();
   generalInformation();
-  document.getElementById("body").classList.add("grayBody");
-  document.getElementById("body").onclick = closeCard;
 }
 
-function nameAliveHouse() {
+function nameAlive() {
   document.getElementById("cardTop").innerHTML = /*html*/ `
     <h1 id="name"></h1>
     <h2 id="house"></h2>
@@ -50,6 +55,9 @@ function nameAliveHouse() {
   if (currentCharacter["alive"] == false) {
     document.getElementById("name").innerHTML += " &dagger;";
   }
+}
+
+function house() {
   // Hogwartshaus mit Farbe
   document.getElementById("house").innerHTML = "";
   if (currentCharacter["house"] !== "") {
@@ -68,9 +76,7 @@ function nameAliveHouse() {
 
 function image() {
   // Bild
-
   if (currentCharacter["image"] !== "") {
-    // document.getElementById('img').setAttribute('href', currentCharacter['image']);
     document.getElementById("cardTop").innerHTML += /*html*/ `
               <svg class="svgBigCard" height="200" width="200">
               <defs>
@@ -128,7 +134,6 @@ function wizardWitchMuggle() {
 // Abstammung
 function ancestry() {
   document.getElementById("ancestry").innerHTML = "";
-
   if (
     currentCharacter["ancestry"] == "half-blood" ||
     "muggleborn" ||
@@ -194,7 +199,52 @@ function wand() {
           </tr>
           `;
 
-    // lengthWand = currentCharacter["wand"]["length"];
+    lengthWand = currentCharacter["wand"]["length"];
+    document.getElementById("scriptChart").innerHTML = `
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [""],
+        datasets: [
+          {
+            label: "length of the wand in inches",
+            data: [${lengthWand}],
+            backgroundColor: ["rgb(65,53,48)"],
+            borderWidth: 1,
+            borderRadius: 7,
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
+        indexAxis: "y",
+        scales: {
+          x: {
+            min: 0, // Startwert auf der x-Achse
+            max: 15, // Endwert auf der x-Achse
+            ticks: {
+              stepSize: 1, // Schrittgröße zwischen den Werten
+              maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
+              minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
+            },
+          },
+          y: {
+            categoryPercentage: 1.0, // 100% Breite für jede Kategorie
+            barPercentage: 1.0, // 100% Breite für jede Bar
+          },
+        },
+        plugins: {
+          legend: {
+            display: false, // Hier wird das Label ausgeblendet
+          },
+        },
+      },
+    });
+
+    `;
+
     document.getElementById("chart").classList.remove("d-none");
   } else {
     document.getElementById("chart").classList.add("d-none");

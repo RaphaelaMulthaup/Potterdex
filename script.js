@@ -1,7 +1,7 @@
 let currentCharacter;
 let allCharacters;
 let nextNumberOfArray = 0;
-
+let lengthWand;
 
 async function loadCharacter() {
   // Daten von API abrufen/als JSON/Charakter auswählen
@@ -17,51 +17,11 @@ function renderCollection() {
     if (allCharacters[i]["alive"] == false) {
       document.getElementById(`h1Minicard${i}`).innerHTML += " &dagger;";
     }
-    // Hogwartshaus mit Farbe
-    if (allCharacters[i]["house"] !== "") {
-      if (allCharacters[i]["house"] == "Gryffindor") {
-        document.getElementById(`miniCard${i}`).style.backgroundColor =
-          "#A24335";
-      } else if (allCharacters[i]["house"] == "Slytherin") {
-        document.getElementById(`miniCard${i}`).style.backgroundColor =
-          "#1D5B54";
-      } else if (allCharacters[i]["house"] == "Ravenclaw") {
-        document.getElementById(`miniCard${i}`).style.backgroundColor =
-          "#1C477B";
-      } else if (allCharacters[i]["house"] == "Hufflepuff") {
-        document.getElementById(`miniCard${i}`).style.backgroundColor =
-          "#C99C5A";
-      }
-    } else {
-      document.getElementById(`miniCard${i}`).style.backgroundColor = "#6B63B5";
-    }
+    houseColorMiniCard(i);
     if (allCharacters[i]["image"] !== "") {
       document.getElementById(`miniCard${i}`).innerHTML += imgMiniCardHtml(i);
     }
-
-    if (
-      allCharacters[i]["wizard"] == true &&
-      allCharacters[i]["gender"] == "male"
-    ) {
-      document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
-    <span>wizard</span>
-    `;
-    } else if (
-      allCharacters[i]["wizard"] == true &&
-      allCharacters[i]["gender"] == "female"
-    ) {
-      document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
-    <span>witch</span>
-    `;
-    } else if (allCharacters[i]["ancestry"] == "muggle") {
-      document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
-    <span>muggle</span>
-    `;
-    } else if (allCharacters[i]["species"] !== "humen") {
-      document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
-    <span>${allCharacters[i]["species"]}</span>
-    `;
-    }
+    wizardWitchMuggleSpeciesMiniCard(i);
   }
   nextNumberOfArray = nextNumberOfArray + 20;
 }
@@ -72,6 +32,22 @@ function miniCardHtml(i) {
             <h1 id="h1Minicard${i}" class="h1Minicard">${allCharacters[i]["name"]}</h1>
         </div>
     `;
+}
+// Hogwartshaus mit Farbe
+function houseColorMiniCard(i) {
+  if (allCharacters[i]["house"] !== "") {
+    if (allCharacters[i]["house"] == "Gryffindor") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#A24335";
+    } else if (allCharacters[i]["house"] == "Slytherin") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#1D5B54";
+    } else if (allCharacters[i]["house"] == "Ravenclaw") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#1C477B";
+    } else if (allCharacters[i]["house"] == "Hufflepuff") {
+      document.getElementById(`miniCard${i}`).style.backgroundColor = "#C99C5A";
+    }
+  } else {
+    document.getElementById(`miniCard${i}`).style.backgroundColor = "#6B63B5";
+  }
 }
 
 function imgMiniCardHtml(i) {
@@ -103,6 +79,32 @@ function imgMiniCardHtml(i) {
             />
         </svg>
     `;
+}
+
+function wizardWitchMuggleSpeciesMiniCard(i) {
+  if (
+    allCharacters[i]["wizard"] == true &&
+    allCharacters[i]["gender"] == "male"
+  ) {
+    document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
+  <span>wizard</span>
+  `;
+  } else if (
+    allCharacters[i]["wizard"] == true &&
+    allCharacters[i]["gender"] == "female"
+  ) {
+    document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
+  <span>witch</span>
+  `;
+  } else if (allCharacters[i]["ancestry"] == "muggle") {
+    document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
+  <span>muggle</span>
+  `;
+  } else if (allCharacters[i]["species"] !== "humen") {
+    document.getElementById(`miniCard${i}`).innerHTML += /*html*/ `
+  <span>${allCharacters[i]["species"]}</span>
+  `;
+  }
 }
 
 function hover(i) {
