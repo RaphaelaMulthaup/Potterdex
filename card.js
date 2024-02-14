@@ -193,10 +193,11 @@ function wand() {
               <td>${currentCharacter["wand"]["length"]} inches</td>
           </tr>
           `;
-    document.getElementById('chart').classList.remove('d-none');
-    ctx[data][datasets][0][data] = currentCharacter["wand"]["length"];
+
+    // lengthWand = currentCharacter["wand"]["length"];
+    document.getElementById("chart").classList.remove("d-none");
   } else {
-    document.getElementById('chart').classList.add('d-none');
+    document.getElementById("chart").classList.add("d-none");
   }
 }
 
@@ -273,21 +274,20 @@ function doNotClose(event) {
   event.stopPropagation();
 }
 
-function changeMenuCardToMagicalInformations(){
-  document.getElementById('cardMagicalInformations').classList.remove('d-none');
-  document.getElementById('cardGeneralInformations').classList.add('d-none');
-  document.getElementById('menuItemMagical').classList.remove('grayMenu');
-  document.getElementById('menuItemGeneral').classList.add('grayMenu');
-  document.getElementById('menuItemGeneral').classList.remove('line');
-  document.getElementById('menuItemMagical').classList.add('line');
+function changeMenuCardToMagicalInformations() {
+  document.getElementById("cardMagicalInformations").classList.remove("d-none");
+  document.getElementById("cardGeneralInformations").classList.add("d-none");
+  document.getElementById("menuItemMagical").classList.remove("grayMenu");
+  document.getElementById("menuItemGeneral").classList.add("grayMenu");
+  document.getElementById("menuItemGeneral").classList.remove("line");
+  document.getElementById("menuItemMagical").classList.add("line");
 }
 
-function changeMenuCardToGeneralInformations(){
-  document.getElementById('cardGeneralInformations').classList.remove('d-none');
-  document.getElementById('cardMagicalInformations').classList.add('d-none');
-  document.getElementById('menuItemGeneral').classList.remove('grayMenu');
-  document.getElementById('menuItemMagical').classList.add('grayMenu');
-  document.getElementById('menuItemGeneral').classList.add('line');
-  document.getElementById('menuItemMagical').classList.remove('line');
+function changeMenuCardToGeneralInformations() {
+  document.getElementById("cardGeneralInformations").classList.remove("d-none");
+  document.getElementById("cardMagicalInformations").classList.add("d-none");
+  document.getElementById("menuItemGeneral").classList.remove("grayMenu");
+  document.getElementById("menuItemMagical").classList.add("grayMenu");
+  document.getElementById("menuItemGeneral").classList.add("line");
+  document.getElementById("menuItemMagical").classList.remove("line");
 }
-

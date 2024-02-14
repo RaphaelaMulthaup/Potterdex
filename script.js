@@ -2,6 +2,7 @@ let currentCharacter;
 let allCharacters;
 let nextNumberOfArray = 0;
 
+
 async function loadCharacter() {
   // Daten von API abrufen/als JSON/Charakter auswählen
   let url = "https://hp-api.onrender.com/api/characters";
