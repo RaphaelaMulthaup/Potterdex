@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokedex</title>
+    <title>PotterDex</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts/fonts.css" />
     <script src="script.js"></script>
     <script src="card.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/vnd.icon" href="./favicon.ico">
   </head>
   <body id="body" onload="loadCharacter()">
     <div
@@ -40,8 +41,8 @@
             <div id="chart" class="chart">
               <canvas id="myChart"></canvas>
             </div>
-            <script id="scriptChart">
-            </script>
+            <!-- <script id="scriptChart">
+            </script> -->
           </div>
         </div>
         <div class="cardGeneralInformations d-none" id="cardGeneralInformations">
@@ -50,22 +51,26 @@
           </div>
         </div>
       </div>
-    </div>
-    <div id="changeCard" class="changeCard" style="display: none">
-      <div class="whiteDiv" id="last" onclick="doNotClose(event)">
-        <img
-          class="iconChangeCard"
-          src="/img/last.png"
-          alt="vorheriger Charakter"
-        />
+      <div id="changeCard" class="changeCard" style="display: none">
+        <div class="whiteDiv" id="last" onclick="doNotClose(event)">
+          <img
+            class="iconChangeCard"
+            src="/img/last.png"
+            alt="vorheriger Charakter"
+          />
+        </div>
+        <div class="whiteDiv" id="close" onclick="closeCard()">
+          <img src="/img/close.png" class="iconChangeCard" alt="">
+        </div>
+        <div class="whiteDiv" id="next" onclick="doNotClose(event)">
+          <img
+            class="iconChangeCard"
+            src="/img/next.png"
+            alt="nächster Charakter"
+          />
+        </div>
       </div>
-      <div class="whiteDiv" id="next" onclick="doNotClose(event)">
-        <img
-          class="iconChangeCard"
-          src="/img/next.png"
-          alt="nächster Charakter"
-        />
-      </div>
+  
     </div>
     <main id="main"></main>
     <button onclick="renderCollection()">Weitere Charaktere laden</button>

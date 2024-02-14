@@ -1,4 +1,4 @@
-.d-none{
+.d-none {
   display: none;
 }
 
@@ -14,23 +14,23 @@ body {
 }
 
 .grayBody::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(128, 128, 128, 0.4);
-    z-index: 5;
-    pointer-events: auto;
-    cursor: pointer;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.4);
+  z-index: 5;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-.grayBody{
-    overflow: hidden;
+.grayBody {
+  overflow: hidden;
 }
 
-.changeCard{
+.changeCard {
   z-index: 7;
   width: 410px;
   height: 40px;
@@ -43,7 +43,7 @@ body {
   margin-bottom: auto;
 }
 
-.whiteDiv{
+.whiteDiv {
   background-color: white;
   display: flex;
   justify-content: center;
@@ -52,13 +52,17 @@ body {
   border-radius: 10px;
 }
 
-.whiteDiv:hover{
+.whiteDiv:hover {
   cursor: pointer;
   background-color: rgb(231, 231, 231);
 }
 
-.iconChangeCard{
+.iconChangeCard {
   height: 30px;
+}
+
+#close {
+  display: none;
 }
 
 main {
@@ -106,12 +110,15 @@ button {
   border-radius: 10px;
 }
 
-button:hover{
-    background-color: #8079b6;
-    cursor: pointer;
+button:hover {
+  background-color: #8079b6;
+  cursor: pointer;
 }
 
 .card {
+  align-items: center;
+    flex-direction: column;
+    display: flex;
   width: 300px;
   background-color: #6b63b5;
   border-radius: 20px;
@@ -129,6 +136,7 @@ button:hover{
 }
 
 #cardTop {
+  width: 300px;
   height: 268px;
   color: white;
   display: flex;
@@ -158,9 +166,11 @@ h2 {
 
 .svgBigCard {
   margin-bottom: -50px;
+  z-index: 15;
 }
 
 #cardBottom {
+  width: 300px;
   background-color: white;
   margin-top: -20px;
   border-radius: 20px;
@@ -186,7 +196,7 @@ h2 {
   font-size: 20px;
 }
 
-.menu{
+.menu {
   display: flex;
   font-size: 12px;
   text-align: center;
@@ -195,19 +205,19 @@ h2 {
   margin-bottom: -1.5px;
 }
 
-.menuItem{
+.menuItem {
   padding-bottom: 8px;
 }
 
-.line{
+.line {
   border-bottom-style: solid;
 }
 
-.grayMenu{
+.grayMenu {
   color: #bab8b8;
 }
 
-.spanMenuItem:hover{
+.spanMenuItem:hover {
   cursor: pointer;
 }
 
@@ -226,38 +236,60 @@ tr td:first-child {
   color: gray;
 }
 
-#tableWizard{
+#tableWizard {
   margin-bottom: 8px;
   margin-top: 16px;
 }
 
-#generalInformation{
+#generalInformation {
   margin-top: 16px;
 }
 
-.chart{
+.chart {
   position: relative;
   height: 55px;
   width: 240px;
   margin-top: 4px;
 }
 
-canvas{
+canvas {
   width: 240px !important;
 }
 
-@media (max-width: 430px){
-	h1{
-margin: 7px 10px;
-}
-  h2{
+@media (max-width: 430px) {
+  h1 {
+    margin: 7px 10px;
+  }
+  h2 {
     margin-bottom: 16px;
   }
   #cardTop {
     height: 255px;
   }
   #wizOrMug {
-    margin: 76px 0 0;}
-    #cardBottom {
-      height: 435px};
+    margin: 76px 0 0;
+  }
+  #cardBottom {
+    height: 435px;
+  }
+
+  #close {
+    display: flex;
+  }
+
+  .changeCard {
+    z-index: 50;
+    top: 640px;
+    width: 120px;
+  }
+
+  #next img{
+    width: 25px;
+    height: 25px;
+  }
+
+  #last img{
+    width: 25px;
+    height: 25px;
+  }
 }
