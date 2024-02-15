@@ -1,44 +1,44 @@
-const ctx = document.getElementById("myChart");
+// const ctx = document.getElementById("myChart");
 
-new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: [""],
-    datasets: [
-      {
-        label: "length of the wand in inches",
-        data: [lengthWand],
-        backgroundColor: ["rgb(65,53,48)"],
-        borderWidth: 1,
-        borderRadius: 7,
-      },
-    ],
-  },
-  options: {
-    aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
-    indexAxis: "y",
-    scales: {
-      x: {
-        min: 0, // Startwert auf der x-Achse
-        max: 15, // Endwert auf der x-Achse
-        ticks: {
-          stepSize: 1, // Schrittgröße zwischen den Werten
-          maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
-          minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
-        },
-      },
-      y: {
-        categoryPercentage: 1.0, // 100% Breite für jede Kategorie
-        barPercentage: 1.0, // 100% Breite für jede Bar
-      },
-    },
-    plugins: {
-      legend: {
-        display: false, // Hier wird das Label ausgeblendet
-      },
-    },
-  },
-});
+// new Chart(ctx, {
+//   type: "bar",
+//   data: {
+//     labels: [""],
+//     datasets: [
+//       {
+//         label: "length of the wand in inches",
+//         data: [lengthWand],
+//         backgroundColor: ["rgb(65,53,48)"],
+//         borderWidth: 1,
+//         borderRadius: 7,
+//       },
+//     ],
+//   },
+//   options: {
+//     aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
+//     indexAxis: "y",
+//     scales: {
+//       x: {
+//         min: 0, // Startwert auf der x-Achse
+//         max: 15, // Endwert auf der x-Achse
+//         ticks: {
+//           stepSize: 1, // Schrittgröße zwischen den Werten
+//           maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
+//           minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
+//         },
+//       },
+//       y: {
+//         categoryPercentage: 1.0, // 100% Breite für jede Kategorie
+//         barPercentage: 1.0, // 100% Breite für jede Bar
+//       },
+//     },
+//     plugins: {
+//       legend: {
+//         display: false, // Hier wird das Label ausgeblendet
+//       },
+//     },
+//   },
+// });
 
 function renderCharacterInfo(i) {
   currentCharacter = allCharacters[i];
@@ -221,6 +221,53 @@ function wand() {
           `;
 
     lengthWand = currentCharacter["wand"]["length"];
+
+    const ctx = document.getElementById("myChart");
+    let existingChart = Chart.getChart(ctx);
+if (existingChart) {
+  existingChart.destroy();
+}
+
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: [""],
+    datasets: [
+      {
+        label: "length of the wand in inches",
+        data: [lengthWand],
+        backgroundColor: ["rgb(65,53,48)"],
+        borderWidth: 1,
+        borderRadius: 7,
+      },
+    ],
+  },
+  options: {
+    aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
+    indexAxis: "y",
+    scales: {
+      x: {
+        min: 0, // Startwert auf der x-Achse
+        max: 15, // Endwert auf der x-Achse
+        ticks: {
+          stepSize: 1, // Schrittgröße zwischen den Werten
+          maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
+          minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
+        },
+      },
+      y: {
+        categoryPercentage: 1.0, // 100% Breite für jede Kategorie
+        barPercentage: 1.0, // 100% Breite für jede Bar
+      },
+    },
+    plugins: {
+      legend: {
+        display: false, // Hier wird das Label ausgeblendet
+      },
+    },
+  },
+});
+
 
     document.getElementById("chart").classList.remove("d-none");
   } else {
