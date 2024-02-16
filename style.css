@@ -72,10 +72,18 @@ header{
   height: 88px;
   display: flex;
   align-items: center;
-  padding: 0 30px;
+  justify-content: space-between;
+  padding: 0 90px;
 }
 
-header>div{
+.headerFlexEnd{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.divLogoHeadline{
 display: flex;
 align-items: flex-end;
 gap: 16px;
@@ -84,12 +92,31 @@ font-size: 40px;
 height: 60px !important;
 }
 
-header>div span{
+.headline{
   height: 40px;
 }
 
-header img{
+.logo{
   height: 60px;
+}
+
+input{
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 13px;
+  border-color: white;
+  background-color: #242633;
+  height: 28px;
+  width: 200px;
+  color: white;
+  foc
+}
+
+input::placeholder{
+  color: white;
+  padding-left: 10px;
+  font-family: "Quattrocento", serif;
+  font-size: 16px;
 }
 
 main {
@@ -98,7 +125,7 @@ main {
   gap: 16px;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin: 30px 10px 0;
 }
 
 .miniCard {

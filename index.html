@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
     <script defer src="card.js"></script>
-    <link rel="icon" type="image/vnd.icon" href="./favicon.ico">
+    <link rel="icon" type="image/vnd.icon" href="./favicon.ico" />
   </head>
   <body id="body" onload="loadCharacter()">
     <div
@@ -27,12 +27,20 @@
         <h3 id="ancestry"></h3>
         <span id="hogwartsStudentStaff"></span>
         <div class="menu">
-          <div class="menuItem line" id="menuItemMagical" onclick="changeMenuCardToMagicalInformations()">
+          <div
+            class="menuItem line"
+            id="menuItemMagical"
+            onclick="changeMenuCardToMagicalInformations()"
+          >
             <span class="spanMenuItem">magical<br />informations</span>
-            </div>
-          <div class="menuItem grayMenu" id="menuItemGeneral" onclick="changeMenuCardToGeneralInformations()">
+          </div>
+          <div
+            class="menuItem grayMenu"
+            id="menuItemGeneral"
+            onclick="changeMenuCardToGeneralInformations()"
+          >
             <span class="spanMenuItem">general<br />informations</span>
-            </div>
+          </div>
         </div>
         <div class="cardMagicalInformations" id="cardMagicalInformations">
           <div class="tables">
@@ -45,7 +53,10 @@
             </script> -->
           </div>
         </div>
-        <div class="cardGeneralInformations d-none" id="cardGeneralInformations">
+        <div
+          class="cardGeneralInformations d-none"
+          id="cardGeneralInformations"
+        >
           <div class="tables">
             <table id="generalInformation"></table>
           </div>
@@ -60,7 +71,7 @@
           />
         </div>
         <div class="whiteDiv" id="close" onclick="closeCard()">
-          <img src="/img/close.png" class="iconChangeCard" alt="">
+          <img src="/img/close.png" class="iconChangeCard" alt="" />
         </div>
         <div class="whiteDiv" id="next" onclick="doNotClose(event)">
           <img
@@ -70,12 +81,14 @@
           />
         </div>
       </div>
-  
     </div>
     <header>
-      <div>
-        <img src="./img/hogwarts.png" alt="">
-        <span>PotterDex</span>
+      <div class="headerFlexEnd">
+        <div class="divLogoHeadline">
+          <img class="logo" src="./img/hogwarts.png" alt="" />
+          <span class="headline">PotterDex</span>
+        </div>
+        <input id="search" type="text" placeholder="Suche..." onkeydown="search()"/>
       </div>
     </header>
     <main id="main"></main>

@@ -162,3 +162,7 @@ function hoverUndoneColor(i) {
     document.getElementById(`miniCard${i}`).style.backgroundColor = "#6B63B5";
   }
 }
+
+function search(){
+  console.log('Hallo');
+}
