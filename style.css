@@ -74,6 +74,8 @@ header{
   align-items: center;
   justify-content: space-between;
   padding: 0 90px;
+  position: sticky;
+  top: 0px;
 }
 
 .headerFlexEnd{
@@ -109,12 +111,17 @@ input{
   height: 28px;
   width: 200px;
   color: white;
-  foc
+  padding-left: 10px;
 }
+
+input:focus{
+  outline: none;
+}
+
 
 input::placeholder{
   color: white;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   font-family: "Quattrocento", serif;
   font-size: 16px;
 }
@@ -189,6 +196,11 @@ button:hover {
   margin-right: auto;
   max-height: 700px;
   z-index: 10;
+}
+
+footer{
+  height: 88px;
+  background-color: red;
 }
 
 #cardTop {
@@ -310,6 +322,19 @@ tr td:first-child {
 
 canvas {
   width: 240px !important;
+}
+
+@media (max-width: 710px){
+  header{
+    height: 134px;
+    padding: 0;
+  }
+  
+  .headerFlexEnd{
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
 }
 
 @media (max-width: 430px) {

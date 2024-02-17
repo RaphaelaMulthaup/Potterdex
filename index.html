@@ -6,9 +6,10 @@
     <title>PotterDex</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="fonts/fonts.css" />
+    <script src="card.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
-    <script defer src="card.js"></script>
+    
     <link rel="icon" type="image/vnd.icon" href="./favicon.ico" />
   </head>
   <body id="body" onload="loadCharacter()">
@@ -88,10 +89,11 @@
           <img class="logo" src="./img/hogwarts.png" alt="" />
           <span class="headline">PotterDex</span>
         </div>
-        <input id="search" type="text" placeholder="Suche..." onkeydown="search()"/>
+        <input id="search" type="text" placeholder="Suche..." onkeyup="search()"/>
       </div>
     </header>
     <main id="main"></main>
-    <button onclick="renderCollection()">Weitere Charaktere laden</button>
+    <button id="button" onclick="moreCharacters()">Weitere Charaktere laden</button>
+    <footer></footer>
   </body>
 </html>

@@ -1,7 +1,9 @@
 let currentCharacter;
 let allCharacters;
-let nextNumberOfArray = 0;
+let numberDisplayedResults = 20;
 let lengthWand;
+let previousSearchLength = 0; // Variable zur Speicherung der vorherigen Länge von searchTerm (des Suchbegriffs)
+
 
 async function loadCharacter() {
   // Daten von API abrufen/als JSON/Charakter auswählen
@@ -12,7 +14,8 @@ async function loadCharacter() {
 }
 // alle Karten in der Übersicht anzeigen
 function renderCollection() {
-  for (let i = nextNumberOfArray; i < nextNumberOfArray + 20; i++) {
+  document.getElementById("main").innerHTML = "";
+  for (let i = 0; i < numberDisplayedResults; i++) {
     document.getElementById("main").innerHTML += miniCardHtml(i);
     if (allCharacters[i]["alive"] == false) {
       document.getElementById(`h1Minicard${i}`).innerHTML += " &dagger;";
@@ -23,7 +26,6 @@ function renderCollection() {
     }
     wizardWitchMuggleSpeciesMiniCard(i);
   }
-  nextNumberOfArray = nextNumberOfArray + 20;
 }
 
 function miniCardHtml(i) {
@@ -110,13 +112,15 @@ function wizardWitchMuggleSpeciesMiniCard(i) {
 function hover(i) {
   hovercolor(i);
   let svg = document.getElementById(`svg${i}`);
-  let img = svg.querySelector("image");
-  svg.setAttribute("width", 180);
-  svg.setAttribute("height", 180);
-  img.setAttribute("width", 180);
-  document
-    .getElementById(`polygon${i}`)
-    .setAttribute("points", "90,0 180,76 144,180 36,180 0,76");
+  if (svg) {
+    let img = svg.querySelector("image");
+    svg.setAttribute("width", 180);
+    svg.setAttribute("height", 180);
+    img.setAttribute("width", 180);
+    document
+      .getElementById(`polygon${i}`)
+      .setAttribute("points", "90,0 180,76 144,180 36,180 0,76");
+  }
 }
 
 function hovercolor(i) {
@@ -138,13 +142,15 @@ function hovercolor(i) {
 function hoverUndone(i) {
   hoverUndoneColor(i);
   let svg = document.getElementById(`svg${i}`);
-  let img = svg.querySelector("image");
-  svg.setAttribute("width", 160);
-  svg.setAttribute("height", 160);
-  img.setAttribute("width", 160);
-  document
-    .getElementById(`polygon${i}`)
-    .setAttribute("points", "80,0 160,68 128,160 32,160 0,68");
+  if (svg) {
+    let img = svg.querySelector("image");
+    svg.setAttribute("width", 160);
+    svg.setAttribute("height", 160);
+    img.setAttribute("width", 160);
+    document
+      .getElementById(`polygon${i}`)
+      .setAttribute("points", "80,0 160,68 128,160 32,160 0,68");
+  }
 }
 
 function hoverUndoneColor(i) {
@@ -163,6 +169,46 @@ function hoverUndoneColor(i) {
   }
 }
 
-function search(){
-  console.log('Hallo');
+function moreCharacters(){
+  numberDisplayedResults = numberDisplayedResults + 20;
+  renderCollection();
+}
+
+
+function search() {
+  let searchTerm = document.getElementById("search").value;
+  if (searchTerm.length > 2) {
+    document.getElementById('button').classList.add('d-none');
+    searchTerm = searchTerm.toLowerCase();
+    document.getElementById("main").innerHTML = "";
+    let countResults = 0;
+    for (let i = 0; i < allCharacters.length; i++) {
+      let characterResult = allCharacters[i]["name"];
+      if (countResults < 10) {
+         if (characterResult.toLowerCase().includes(searchTerm)) {
+        document.getElementById("main").innerHTML += miniCardHtml(i);
+        if (allCharacters[i]["alive"] == false) {
+          document.getElementById(`h1Minicard${i}`).innerHTML += " &dagger;";
+        }
+        houseColorMiniCard(i);
+        if (allCharacters[i]["image"] !== "") {
+          document.getElementById(`miniCard${i}`).innerHTML +=
+            imgMiniCardHtml(i);
+        }
+        wizardWitchMuggleSpeciesMiniCard(i);
+        countResults++;
+      }
+      } else {
+        break;
+      }
+     
+    }
+  } else {
+    // Wenn die aktuelle Länge von searchTerm kleiner als 3 ist und die vorherige Länge größer oder gleich 3 war
+    if (previousSearchLength >= 3) {
+      renderCollection(); // renderCollection() aufrufen
+      document.getElementById('button').classList.remove('d-none');
+    }
+  }
+  previousSearchLength = searchTerm.length; // Speichere die aktuelle Länge von searchTerm für den nächsten Durchlauf
 }
