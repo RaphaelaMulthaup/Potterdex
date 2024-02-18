@@ -4,7 +4,6 @@ let numberDisplayedResults = 20;
 let lengthWand;
 let previousSearchLength = 0; // Variable zur Speicherung der vorherigen Länge von searchTerm (des Suchbegriffs)
 
-
 async function loadCharacter() {
   // Daten von API abrufen/als JSON/Charakter auswählen
   let url = "https://hp-api.onrender.com/api/characters";
@@ -169,46 +168,51 @@ function hoverUndoneColor(i) {
   }
 }
 
-function moreCharacters(){
+function moreCharacters() {
   numberDisplayedResults = numberDisplayedResults + 20;
   renderCollection();
 }
 
-
 function search() {
   let searchTerm = document.getElementById("search").value;
   if (searchTerm.length > 2) {
-    document.getElementById('button').classList.add('d-none');
-    searchTerm = searchTerm.toLowerCase();
-    document.getElementById("main").innerHTML = "";
-    let countResults = 0;
-    for (let i = 0; i < allCharacters.length; i++) {
-      let characterResult = allCharacters[i]["name"];
-      if (countResults < 10) {
-         if (characterResult.toLowerCase().includes(searchTerm)) {
-        document.getElementById("main").innerHTML += miniCardHtml(i);
-        if (allCharacters[i]["alive"] == false) {
-          document.getElementById(`h1Minicard${i}`).innerHTML += " &dagger;";
-        }
-        houseColorMiniCard(i);
-        if (allCharacters[i]["image"] !== "") {
-          document.getElementById(`miniCard${i}`).innerHTML +=
-            imgMiniCardHtml(i);
-        }
-        wizardWitchMuggleSpeciesMiniCard(i);
-        countResults++;
-      }
-      } else {
-        break;
-      }
-     
-    }
+    createResults(searchTerm);
   } else {
     // Wenn die aktuelle Länge von searchTerm kleiner als 3 ist und die vorherige Länge größer oder gleich 3 war
     if (previousSearchLength >= 3) {
       renderCollection(); // renderCollection() aufrufen
-      document.getElementById('button').classList.remove('d-none');
+      document.getElementById("button").classList.remove("d-none");
     }
   }
   previousSearchLength = searchTerm.length; // Speichere die aktuelle Länge von searchTerm für den nächsten Durchlauf
+}
+
+function createResults(searchTerm) {
+  document.getElementById("button").classList.add("d-none");
+  searchTerm = searchTerm.toLowerCase();
+  document.getElementById("main").innerHTML = "";
+  let countResults = 0;
+  for (let i = 0; i < allCharacters.length; i++) {
+    let characterResult = allCharacters[i]["name"];
+    if (countResults < 10) {
+      if (characterResult.toLowerCase().includes(searchTerm)) {
+        miniCardSearchResult(i);
+        countResults++;
+      }
+    } else {
+      break;
+    }
+  }
+}
+
+function miniCardSearchResult(i) {
+  document.getElementById("main").innerHTML += miniCardHtml(i);
+  if (allCharacters[i]["alive"] == false) {
+    document.getElementById(`h1Minicard${i}`).innerHTML += " &dagger;";
+  }
+  houseColorMiniCard(i);
+  if (allCharacters[i]["image"] !== "") {
+    document.getElementById(`miniCard${i}`).innerHTML += imgMiniCardHtml(i);
+  }
+  wizardWitchMuggleSpeciesMiniCard(i);
 }

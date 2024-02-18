@@ -1,45 +1,3 @@
-// const ctx = document.getElementById("myChart");
-
-// new Chart(ctx, {
-//   type: "bar",
-//   data: {
-//     labels: [""],
-//     datasets: [
-//       {
-//         label: "length of the wand in inches",
-//         data: [lengthWand],
-//         backgroundColor: ["rgb(65,53,48)"],
-//         borderWidth: 1,
-//         borderRadius: 7,
-//       },
-//     ],
-//   },
-//   options: {
-//     aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
-//     indexAxis: "y",
-//     scales: {
-//       x: {
-//         min: 0, // Startwert auf der x-Achse
-//         max: 15, // Endwert auf der x-Achse
-//         ticks: {
-//           stepSize: 1, // Schrittgröße zwischen den Werten
-//           maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
-//           minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
-//         },
-//       },
-//       y: {
-//         categoryPercentage: 1.0, // 100% Breite für jede Kategorie
-//         barPercentage: 1.0, // 100% Breite für jede Bar
-//       },
-//     },
-//     plugins: {
-//       legend: {
-//         display: false, // Hier wird das Label ausgeblendet
-//       },
-//     },
-//   },
-// });
-
 function renderCharacterInfo(i) {
   currentCharacter = allCharacters[i];
   document.getElementById("card").style = "display: flex";
@@ -188,11 +146,15 @@ function hogwartsPatronus() {
           `;
   }
 }
-
-function wand() {
   //Zauberstab
+function wand() {
   document.getElementById("tableWand").innerHTML = "";
+  informationsWandWood();
+  informationsWandCore();
+  informationWandLength();
+}
 
+function informationsWandWood(){
   if (currentCharacter["wand"]["wood"] !== "") {
     document.getElementById("tableWand").innerHTML = /*html*/ `
           <tr>
@@ -204,6 +166,9 @@ function wand() {
           </tr>
           `;
   }
+}
+
+function informationsWandCore(){
   if (currentCharacter["wand"]["core"] !== "") {
     document.getElementById("tableWand").innerHTML += /*html*/ `
           <tr>
@@ -212,6 +177,9 @@ function wand() {
           </tr>
           `;
   }
+}
+
+function informationWandLength(){
   if (currentCharacter["wand"]["length"] !== null) {
     document.getElementById("tableWand").innerHTML += /*html*/ `
           <tr>
@@ -224,55 +192,58 @@ function wand() {
 
     const ctx = document.getElementById("myChart");
     let existingChart = Chart.getChart(ctx);
-if (existingChart) {
-  existingChart.destroy();
-}
-
-new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: [""],
-    datasets: [
-      {
-        label: "length of the wand in inches",
-        data: [lengthWand],
-        backgroundColor: ["rgb(65,53,48)"],
-        borderWidth: 1,
-        borderRadius: 7,
-      },
-    ],
-  },
-  options: {
-    aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
-    indexAxis: "y",
-    scales: {
-      x: {
-        min: 0, // Startwert auf der x-Achse
-        max: 15, // Endwert auf der x-Achse
-        ticks: {
-          stepSize: 1, // Schrittgröße zwischen den Werten
-          maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
-          minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
-        },
-      },
-      y: {
-        categoryPercentage: 1.0, // 100% Breite für jede Kategorie
-        barPercentage: 1.0, // 100% Breite für jede Bar
-      },
-    },
-    plugins: {
-      legend: {
-        display: false, // Hier wird das Label ausgeblendet
-      },
-    },
-  },
-});
-
+    if (existingChart) {
+      existingChart.destroy();
+    }
+    newChart(ctx);
 
     document.getElementById("chart").classList.remove("d-none");
   } else {
     document.getElementById("chart").classList.add("d-none");
   }
+}
+
+function newChart(ctx){
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: [""],
+      datasets: [
+        {
+          label: "length of the wand in inches",
+          data: [lengthWand],
+          backgroundColor: ["rgb(65,53,48)"],
+          borderWidth: 1,
+          borderRadius: 7,
+        },
+      ],
+    },
+    options: {
+      aspectRatio: 4, // Seitenverhältnis: 4 (4:1)
+      indexAxis: "y",
+      scales: {
+        x: {
+          min: 0, // Startwert auf der x-Achse
+          max: 15, // Endwert auf der x-Achse
+          ticks: {
+            stepSize: 1, // Schrittgröße zwischen den Werten
+            maxRotation: 0, // Maximale Rotation der Tick-Marken (0 Grad)
+            minRotation: 0, // Minimale Rotation der Tick-Marken (0 Grad)
+          },
+        },
+        y: {
+          categoryPercentage: 1.0, // 100% Breite für jede Kategorie
+          barPercentage: 1.0, // 100% Breite für jede Bar
+        },
+      },
+      plugins: {
+        legend: {
+          display: false, // Hier wird das Label ausgeblendet
+        },
+      },
+    },
+  });
+
 }
 
 function generalInformation() {

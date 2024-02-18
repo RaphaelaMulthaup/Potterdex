@@ -9,7 +9,7 @@
     <script src="card.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
-    
+
     <link rel="icon" type="image/vnd.icon" href="./favicon.ico" />
   </head>
   <body id="body" onload="loadCharacter()">
@@ -50,8 +50,6 @@
             <div id="chart" class="chart">
               <canvas id="myChart"></canvas>
             </div>
-            <!-- <script id="scriptChart">
-            </script> -->
           </div>
         </div>
         <div
@@ -89,11 +87,20 @@
           <img class="logo" src="./img/hogwarts.png" alt="" />
           <span class="headline">PotterDex</span>
         </div>
-        <input id="search" type="text" placeholder="Suche..." onkeyup="search()"/>
+        <input
+          id="search"
+          type="text"
+          placeholder="Suche..."
+          onkeyup="search()"
+        />
       </div>
     </header>
     <main id="main"></main>
-    <button id="button" onclick="moreCharacters()">Weitere Charaktere laden</button>
-    <footer></footer>
+    <button id="button" onclick="moreCharacters()">
+      Weitere Charaktere laden
+    </button>
+    <footer>
+      <span>PotterDex by Raphaela Multhaup</span>
+    </footer>
   </body>
 </html>
