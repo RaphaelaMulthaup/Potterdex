@@ -319,6 +319,7 @@ function closeCard() {
   document.getElementById("changeCard").style = "display: none";
   document.getElementById("body").removeAttribute("onclick");
   document.getElementById("body").classList.remove("grayBody");
+  changeMenuCardToMagicalInformations();
 }
 
 function doNotClose(event) {
